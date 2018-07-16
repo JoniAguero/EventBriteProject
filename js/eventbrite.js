@@ -20,4 +20,12 @@ export class EventBriteAPI {
 
     }
 
+    async obtenerBusqueda(busqueda, categoria) {
+
+
+        const url = await fetch(`https://www.eventbriteapi.com/v3/events/search/?q=${busqueda}&sort_by=${this.ordenar}&categories=${categoria}&token=${this.token}`);
+        return await url.json();
+
+    }
+
 }
