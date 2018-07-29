@@ -46,7 +46,7 @@ UI.buscarButton.addEventListener('click', (e) => {
             card.style.marginRight = "10px";
             card.style.height = "150px";
             card.style.width = "380px";
-            card.style.transition = "0.3s";
+            card.style.transition = "0.5s";
             card.style.margin = "20px";
             card.style.cursor = "pointer";
             const cardImage = document.createElement('div');
@@ -83,8 +83,8 @@ UI.buscarButton.addEventListener('click', (e) => {
             element.addEventListener('mouseover', () => {
                 e.preventDefault();
                 
-                element.style.height = "165px";
-                element.style.width = "418px";
+                element.style.height = "158px";
+                element.style.width = "399px";
 
             });
 
