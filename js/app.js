@@ -44,7 +44,7 @@ UI.buscarButton.addEventListener('click', (e) => {
             card.classList.add('card');
             card.style.display = "inline-block";
             card.style.marginRight = "10px";
-            card.style.height = "100px";
+            card.style.height = "150px";
             card.style.width = "380px";
             card.style.transition = "0.3s";
             card.style.margin = "20px";
@@ -52,13 +52,24 @@ UI.buscarButton.addEventListener('click', (e) => {
             const cardImage = document.createElement('div');
             cardImage.classList.add('card-image');
             const image = document.createElement('img');
-            image.src = element.logo.url;
+            if (element.logo !== null) {
+                image.src = element.logo.url;
+            } else {
+                image.src = '../img/no-image.jpg'
+            }
+            
             cardImage.appendChild(image);
             const cardContent = document.createElement('div');
             cardContent.classList.add('card-content');
             cardContent.appendChild(document.createTextNode(element.name.text));
             card.appendChild(cardImage);
             card.appendChild(cardContent);
+            if(element.url){
+                const cardUrl = document.createElement('url');
+                cardUrl.appendChild(document.createTextNode(element.url));
+                cardUrl.style.display = "none";
+                card.appendChild(cardUrl);
+            }
             
             UI.eventosSection.appendChild(card);
            
@@ -72,7 +83,7 @@ UI.buscarButton.addEventListener('click', (e) => {
             element.addEventListener('mouseover', () => {
                 e.preventDefault();
                 
-                element.style.height = "110px";
+                element.style.height = "165px";
                 element.style.width = "418px";
 
             });
@@ -80,9 +91,15 @@ UI.buscarButton.addEventListener('click', (e) => {
             element.addEventListener('mouseout', () => {
                 e.preventDefault();
 
-                element.style.height = "100px";
-                element.style.width = "400px";
+                element.style.height = "150px";
+                element.style.width = "380px";
 
+            });
+
+            element.addEventListener('click', () => {
+                e.preventDefault();
+                let url = element.childNodes[2].textContent;
+                window.open(url)
             })
             
         });
